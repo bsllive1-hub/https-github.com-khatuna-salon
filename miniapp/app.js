@@ -275,155 +275,135 @@ document.getElementById('lightbox').addEventListener('click', e => { if (e.targe
 function showPromos() { switchTab('home'); setTimeout(() => document.getElementById('promosSection').scrollIntoView({ behavior: 'smooth' }), 300); }
 
 // ================================================
-// AI BEAUTY CONSULTANT — INTELLIGENT ENGINE
+// AI BEAUTY CONSULTANT — GEMINI-POWERED ENGINE
 // ================================================
-const AI_NAME = "Бьюти-стилист";
+const GEMINI_API_KEY = "AIzaSyCgKlYxubonAvEiPaqm1Cr_MIYV_GypOHA";
+const GEMINI_MODEL = "gemini-2.0-flash";
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
-const AI_KNOWLEDGE = {
-  haircut: {
-    round: ["Каскад на средние волосы — удлиняет лицо", "Удлинённое каре — маскирует щёки", "Боб с удлинёнными прядями у лица", "Стрижка с косой чёлкой"],
-    oval: ["Пикси — идеально для овального лица", "Каре любой длины", "Чёлка: прямая, косая, арочная", "Боб-каре — подчеркнёт скулы"],
-    square: ["Каскад с мягкими локонами", "Удлинённый боб — смягчает углы", "Градуированная стрижка с объёмом на макушке", "Косая удлинённая чёлка"],
-    heart: ["Каре до плеч — балансирует подбородок", "Стрижка слоями от подбородка", "Боб с объёмом на уровне скул"],
-    general: [
-      "✂️ <b>Каре</b> — классика, подходит любому типу лица. от 1 200 ₽",
-      "✂️ <b>Каскад</b> — придаёт объём тонким волосам. от 1 500 ₽",
-      "✂️ <b>Пикси</b> — дерзкая и стильная короткая стрижка. от 900 ₽",
-      "✂️ <b>Боб-каре</b> — модный тренд 2026. от 1 200 ₽",
-      "✂️ <b>Шегги</b> — небрежный объём, эффект движения. от 1 500 ₽",
-    ],
-  },
-  color: {
-    warm: ["Карамельный блонд", "Медовый каштан", "Тёплый шоколад", "Золотистая бронза"],
-    cool: ["Пепельный блонд", "Платина", "Холодный каштан", "Серебристый балаяж"],
-    bright: ["Клубничный блонд", "Розовое золото", "Карамельный омбре", "Медный"],
-    general: [
-      "🎨 <b>Балаяж</b> — натуральный переход цвета. 3 000–10 000 ₽",
-      "🎨 <b>Аиртач</b> — мягкий объёмный эффект. от 5 000 ₽",
-      "🎨 <b>Шатуш</b> — солнечные блики в волосах. от 4 000 ₽",
-      "🎨 <b>Тонирование</b> — освежает образ без вреда. от 2 000 ₽",
-      "🎨 <b>Мелирование</b> — многогранный цвет. 2 500–8 000 ₽",
-    ],
-  },
-  styling: {
-    general: [
-      "💫 <b>Голливудские локоны</b> — роскошь для вечера. от 2 000 ₽",
-      "💫 <b>Пляжные волны</b> — лёгкий эффект отдыха. от 700 ₽",
-      "💫 <b>Объёмная укладка</b> — буст-ап эффект. от 700 ₽",
-      "💫 <b>Гладкий хвост</b> — элегантно и просто. от 700 ₽",
-      "💫 <b>Французская коса</b> — романтика для длинных волос. от 1 000 ₽",
-      "💫 <b>Пучок</b> — низкий или высокий, для любого повода. от 700 ₽",
-    ],
-  },
-  nails: {
-    general: [
-      "💅 <b>Френч</b> — бессмертная классика. 2 300 ₽",
-      "💅 <b>Градиент (омбре)</b> — плавные переходы цветов. 2 400 ₽",
-      "💅 <b>Кошачий глаз</b> — магнитный гель-лак с глубиной. 2 500 ₽",
-      "💅 <b>Минимализм</b> — тонкие линии, точки, геометрия. 2 300 ₽",
-      "💅 <b>Стразы и фольга</b> — яркий праздничный дизайн. от 2 500 ₽",
-      "💅 <b>Нюдовые оттенки</b> — элегантно на каждый день. 2 300 ₽",
-    ],
-  },
-  skincare: {
-    general: [
-      "🧴 <b>Чистка комбинированная (Holy Land)</b> — глубокое очищение. 4 500 ₽",
-      "🧴 <b>Биоревитализация</b> — увлажнение изнутри. 8 500–14 500 ₽",
-      "🧴 <b>Мезотерапия</b> — витаминный коктейль для кожи. 6 500 ₽",
-      "🧴 <b>Фарфоровая куколка</b> — сияние и тонус. 3 000 ₽",
-      "🧴 <b>Ботулинотерапия</b> — разглаживание мимических морщин. 350 ₽/ед.",
-    ],
-  },
-  brows: {
-    general: [
-      "🖊️ <b>Архитектура хной</b> — форма + окрашивание. 2 000 ₽",
-      "🖊️ <b>Ламинирование бровей</b> — эффект уложенных бровей. от 2 000 ₽",
-      "🖊️ <b>Перманент бровей</b> — идеальная форма надолго. 8 000 ₽",
-      "🖊️ <b>Наращивание ресниц</b> — выразительный взгляд. от 2 000 ₽",
-      "🖊️ <b>Ламинирование ресниц</b> — натуральный объём. от 1 800 ₽",
-    ],
-  },
-};
+const SYSTEM_PROMPT = `Ты — ИИ бьюти-стилист салона красоты «Хатуна» в Москве (Алтуфьевское шоссе, 74).
+Твоя задача — давать персональные рекомендации по красоте и помогать клиентам выбрать услуги.
 
-const AI_RESPONSES = {
-  greeting: [
-    "Привет! 👋 Рада вас видеть! Расскажите, какой образ вы хотите — и я подберу идеальные услуги.",
-    "Здравствуйте! ✨ Я ваш персональный бьюти-советник. Чем могу помочь?",
-  ],
-  face_shape: "Чтобы подобрать идеальную стрижку, подскажите форму вашего лица:\n\n🔵 Круглое\n🔷 Овальное\n🔲 Квадратное\n💎 Сердечко\n\nИли загрузите фото — я подскажу!",
-  skin_type: "Для ухода за кожей важно знать ваш тип:\n\n💧 Сухая\n✨ Нормальная\n💦 Жирная\n🔀 Комбинированная\n\nЧто у вас?",
-  hair_type: "Расскажите о ваших волосах:\n\n🌊 Волнистые\n〰️ Прямые\n🌀 Кудрявые\n📏 Длина: короткие/средние/длинные?",
-  unknown: [
-    "Интересный вопрос! 🤔 Я специализируюсь на стрижках, укладках, цвете волос, маникюре и уходе за кожей. Спросите меня об этом!",
-    "Расскажу подробнее о наших услугах! Выберите тему: стрижка ✂️, окрашивание 🎨, укладка 💫, ногти 💅 или уход 🧴",
-  ],
-  booking_suggest: "\n\n📆 <i>Хотите записаться? Нажмите на вкладку «Запись» или выберите услугу выше!</i>",
-};
+ПРАВИЛА:
+- Отвечай на русском языке, дружелюбно и профессионально
+- Используй эмодзи умеренно
+- Давай конкретные рекомендации с ценами из прайса
+- При анализе фото определяй: форму лица, тип кожи, цветотип, и давай индивидуальные рекомендации
+- В конце ответа предлагай записаться
+- Ответы должны быть краткими (до 200 слов)
+
+ПРАЙС-ЛИСТ САЛОНА:
+✂️ ПАРИКМАХЕРСКИЕ:
+- Стрижка женская (короткие) от 900₽, (средние) от 1200₽, (длинные) от 2000₽
+- Ровный срез 1200₽, Горячие ножницы от 1500₽
+- Детская стрижка от 500₽, Мужская модельная 900₽
+- Пенсионерам (10-12ч) 500₽, Усы и борода 700₽
+- Окрашивание в один тон 3000-10000₽, Мелирование 2500-8000₽
+- Осветление 3000-10000₽, Химзавивка 3500-8000₽
+- Укладка от 700₽, Вечерняя причёска от 2000₽
+
+💅 НОГТЕВОЙ СЕРВИС:
+- Маникюр классика/аппарат от 800₽, Гель-лак 1000₽
+- Маникюр + гель-лак 2300-2600₽, SPA-маникюр 2600₽
+- Детский маникюр 500₽, Дизайн от 100₽
+- Педикюр классический от 1800₽, аппаратный от 2200₽, с покрытием от 2800₽
+
+💉 КОСМЕТОЛОГИЯ:
+- Чистка комбинированная (Holy Land) 4500₽
+- Фарфоровая куколка 3000₽, Мезотерапия 6500₽
+- Биоревитализация 8500-14500₽, Ботулинотерапия 350₽/ед
+- Увеличение губ (Stylage M) 15500₽
+- Архитектура бровей хной 2000₽, Ламинирование бровей от 2000₽
+- Окрашивание бровей 800-1000₽, Коррекция бровей от 500₽
+- Наращивание ресниц от 2000₽, Ламинирование ресниц от 1800₽
+
+💆 МАССАЖ:
+- Миофасциально-букальный (1 час) 3000₽
+- Авторский массаж лица (1 час) 2500-3000₽
+- Общий массаж тела (1 час) 2600₽, Спины 2000₽, ШВЗ 1500₽
+- Антицеллюлитный от 3000₽, Лимфодренажный от 3000₽
+
+🌿 ЭПИЛЯЦИЯ:
+- Бикини классическое 1500₽, глубокое 2000₽
+- Ноги полностью 1400₽, Голени от 800₽, Подмышки от 500₽
+
+🖊️ ПЕРМАНЕНТНЫЙ МАКИЯЖ:
+- Брови 8000₽, Губы 8000₽, Межресничное 7000₽, Коррекция от 3000₽
+
+КОНТАКТЫ: +7(993)285-99-02, Ежедневно 10-21, Dog-friendly, Wi-Fi, Парковка`;
+
+let chatHistory = [];
+
+async function callGemini(userText, imageBase64 = null) {
+  const parts = [];
+  if (imageBase64) {
+    const base64Data = imageBase64.split(',')[1];
+    const mimeType = imageBase64.match(/data:(.*?);/)?.[1] || 'image/jpeg';
+    parts.push({ inlineData: { mimeType, data: base64Data } });
+  }
+  parts.push({ text: userText });
+
+  chatHistory.push({ role: "user", parts });
+
+  const contents = [
+    { role: "user", parts: [{ text: SYSTEM_PROMPT }] },
+    { role: "model", parts: [{ text: "Понятно! Я ИИ бьюти-стилист салона «Хатуна». Готова помочь с подбором услуг, стрижек, окрашивания, ухода и записью. Чем могу помочь?" }] },
+    ...chatHistory
+  ];
+
+  try {
+    const resp = await fetch(GEMINI_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents,
+        generationConfig: {
+          temperature: 0.8,
+          maxOutputTokens: 800,
+          topP: 0.9,
+        }
+      })
+    });
+
+    if (!resp.ok) {
+      const err = await resp.text();
+      console.error('Gemini error:', err);
+      return "⚠️ Извините, произошла ошибка. Попробуйте ещё раз или позвоните нам: +7(993)285-99-02";
+    }
+
+    const data = await resp.json();
+    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Не удалось получить ответ.";
+    chatHistory.push({ role: "model", parts: [{ text: reply }] });
+
+    // Keep history manageable
+    if (chatHistory.length > 20) chatHistory = chatHistory.slice(-16);
+
+    return reply;
+  } catch (e) {
+    console.error('Gemini fetch error:', e);
+    return "⚠️ Нет связи с ИИ. Проверьте интернет или позвоните: +7(993)285-99-02";
+  }
+}
 
 function aiQuickTopic(topic) {
   const topicNames = {
+    haircut: 'Порекомендуй стрижку, которая мне подойдёт. Расскажи о трендах 2026 и ценах.',
+    color: 'Хочу покрасить волосы. Какие модные окрашивания в 2026? Расскажи о ценах.',
+    styling: 'Какую укладку порекомендуешь? Расскажи варианты с ценами.',
+    nails: 'Хочу сделать маникюр. Какой дизайн в тренде? Расскажи о ценах.',
+    skincare: 'Расскажи об уходе за кожей лица. Какие процедуры есть и цены?',
+    brows: 'Хочу оформить брови и ресницы. Какие варианты и цены?',
+  };
+  const displayNames = {
     haircut: 'подбор стрижки', color: 'подбор цвета', styling: 'укладку',
     nails: 'дизайн ногтей', skincare: 'уход за кожей', brows: 'брови и ресницы',
   };
-  addUserMessage(`Хочу консультацию по теме: ${topicNames[topic]}`);
-  setTimeout(() => generateAIResponse(topic), 800);
-}
-
-function generateAIResponse(topic, context = '') {
+  addUserMessage(`Хочу консультацию по теме: ${displayNames[topic]}`);
   showTyping();
-  setTimeout(() => {
+  callGemini(topicNames[topic]).then(reply => {
     hideTyping();
-    const knowledge = AI_KNOWLEDGE[topic];
-    if (!knowledge) {
-      addBotMessage(AI_RESPONSES.unknown[Math.floor(Math.random() * AI_RESPONSES.unknown.length)]);
-      return;
-    }
-    const items = knowledge.general;
-    let response = '';
-    switch (topic) {
-      case 'haircut':
-        response = `✂️ <b>Рекомендации по стрижке:</b>\n\nВот что идеально подойдёт в этом сезоне:\n\n${items.join('\n\n')}\n\n💡 <i>Совет:</i> Для точной рекомендации расскажите форму лица или загрузите фото!`;
-        break;
-      case 'color':
-        response = `🎨 <b>Модные окрашивания 2026:</b>\n\nТренды этого сезона:\n\n${items.join('\n\n')}\n\n💡 <i>Совет:</i> Тёплые оттенки подходят для тёплого цветотипа (весна/осень), холодные — для лета/зимы.`;
-        break;
-      case 'styling':
-        response = `💫 <b>Идеи для укладки:</b>\n\n${items.join('\n\n')}\n\n💡 <i>Для повседневной или вечерней?</i> Уточните, подберу точнее!`;
-        break;
-      case 'nails':
-        response = `💅 <b>Трендовый дизайн ногтей:</b>\n\n${items.join('\n\n')}\n\n💡 <i>Наш мастер Гаяне создаёт потрясающие дизайны!</i>`;
-        break;
-      case 'skincare':
-        response = `🧴 <b>Уход за кожей:</b>\n\n${items.join('\n\n')}\n\n💡 <i>Процедуры подбираются индивидуально. Какой у вас тип кожи?</i>`;
-        break;
-      case 'brows':
-        response = `🖊️ <b>Брови и ресницы:</b>\n\n${items.join('\n\n')}\n\n💡 <i>Перманент держится 1–2 года и экономит время утром!</i>`;
-        break;
-    }
-    response += AI_RESPONSES.booking_suggest;
-    addBotMessage(response);
-    addRecommendationCards(topic);
-  }, 1200 + Math.random() * 800);
-}
-
-function addRecommendationCards(topic) {
-  const msgs = document.getElementById('aiMessages');
-  const knowledge = AI_KNOWLEDGE[topic];
-  if (!knowledge) return;
-  const items = knowledge.general.slice(0, 3);
-  const cardHtml = items.map(item => {
-    const match = item.match(/<b>(.+?)<\/b>.*?(\d[\d\s–,]*₽)/);
-    if (!match) return '';
-    return `<div class="ai-reco-item"><span>${match[1]}</span><button class="ai-reco-book" onclick="aiBookService('${match[1]}')">Записаться</button></div>`;
-  }).join('');
-  if (cardHtml) {
-    const div = document.createElement('div');
-    div.className = 'ai-msg ai-msg-bot';
-    div.innerHTML = `<div class="ai-msg-avatar">💡</div><div class="ai-reco-card"><h5>Рекомендуемое:</h5>${cardHtml}</div>`;
-    div.style.animation = 'fadeIn 0.3s';
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
-  }
+    addBotMessage(reply);
+  });
 }
 
 function aiBookService(serviceName) {
@@ -432,68 +412,16 @@ function aiBookService(serviceName) {
   goToBookingStep(2);
 }
 
-function aiSendMessage() {
+async function aiSendMessage() {
   const input = document.getElementById('aiInput');
   const text = input.value.trim();
   if (!text) return;
   addUserMessage(text);
   input.value = '';
-  const lower = text.toLowerCase();
-  let topic = null;
-  if (/стриж|стрижк|причес|причёс|каре|боб|пикси|каскад|короткие|волосы подстричь/i.test(lower)) topic = 'haircut';
-  else if (/цвет|краш|окраш|блонд|мелирование|балаяж|шатуш|тониров|покрасить|перекрасить/i.test(lower)) topic = 'color';
-  else if (/укладк|локон|кудри|завив|причёс|причес|уложить|фен/i.test(lower)) topic = 'styling';
-  else if (/ноготь|ногт|маник|педикюр|гель|лак|дизайн ногт|френч/i.test(lower)) topic = 'nails';
-  else if (/кожа|кож|лицо|лиц|чистк|мезо|ботокс|биоревит|увлаж|морщин|прыщ|акне|уход/i.test(lower)) topic = 'skincare';
-  else if (/бров|ресниц|перманент|наращивание ресниц|ламинирование/i.test(lower)) topic = 'brows';
-  else if (/прив|здравст|добрый|хай|hello|привет/i.test(lower)) {
-    showTyping();
-    setTimeout(() => { hideTyping(); addBotMessage(AI_RESPONSES.greeting[Math.floor(Math.random() * AI_RESPONSES.greeting.length)]); }, 800);
-    return;
-  }
-  else if (/форма лица|тип лица|какое лицо|круг|овал|квадрат/i.test(lower)) {
-    showTyping();
-    setTimeout(() => { hideTyping(); addBotMessage(AI_RESPONSES.face_shape); }, 600);
-    return;
-  }
-  else if (/круглое|oval|овальное/i.test(lower)) {
-    showTyping();
-    const shape = /кругл/i.test(lower) ? 'round' : 'oval';
-    setTimeout(() => {
-      hideTyping();
-      const recs = AI_KNOWLEDGE.haircut[shape];
-      addBotMessage(`Для ${shape === 'round' ? 'круглого' : 'овального'} лица идеально:\n\n${recs.map(r => `• ${r}`).join('\n')}\n\n💇‍♀️ Хотите записаться на одну из этих стрижек?`);
-    }, 1000);
-    return;
-  }
-  else if (/квадратн/i.test(lower)) {
-    showTyping();
-    setTimeout(() => {
-      hideTyping();
-      const recs = AI_KNOWLEDGE.haircut.square;
-      addBotMessage(`Для квадратного лица рекомендую:\n\n${recs.map(r => `• ${r}`).join('\n')}\n\nЗадача — смягчить углы скул мягкими линиями.`);
-    }, 1000);
-    return;
-  }
-  else if (/цена|стоимо|сколько|прайс/i.test(lower)) {
-    showTyping();
-    setTimeout(() => { hideTyping(); addBotMessage("Полный прайс-лист на вкладке 💇‍♀️ <b>Услуги</b>!\n\nНо если скажете какая услуга интересует — сразу назову цену 😊"); }, 600);
-    return;
-  }
-  else if (/запис|забронир|прийти|время|свободн/i.test(lower)) {
-    showTyping();
-    setTimeout(() => { hideTyping(); addBotMessage("Для записи перейдите на вкладку 📆 <b>Запись</b> — там можно выбрать услугу, дату и время!\n\nИли скажите какую услугу хотите — и я подскажу лучшие варианты 💖"); }, 600);
-    return;
-  }
-  if (topic) {
-    generateAIResponse(topic, text);
-  } else {
-    showTyping();
-    setTimeout(() => {
-      hideTyping();
-      addBotMessage(AI_RESPONSES.unknown[Math.floor(Math.random() * AI_RESPONSES.unknown.length)]);
-    }, 800);
-  }
+  showTyping();
+  const reply = await callGemini(text);
+  hideTyping();
+  addBotMessage(reply);
 }
 
 function addUserMessage(text) {
@@ -505,11 +433,16 @@ function addUserMessage(text) {
   msgs.scrollTop = msgs.scrollHeight;
 }
 
-function addBotMessage(html) {
+function addBotMessage(text) {
   const msgs = document.getElementById('aiMessages');
   const div = document.createElement('div');
   div.className = 'ai-msg ai-msg-bot';
-  div.innerHTML = `<div class="ai-msg-avatar">🪞</div><div class="ai-msg-bubble glass-bubble">${html.replace(/\n/g, '<br>')}</div>`;
+  // Convert markdown bold **text** to <b>text</b> and newlines to <br>
+  let html = text
+    .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+    .replace(/\*(.+?)\*/g, '<i>$1</i>')
+    .replace(/\n/g, '<br>');
+  div.innerHTML = `<div class="ai-msg-avatar">🪞</div><div class="ai-msg-bubble glass-bubble">${html}</div>`;
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
   if (tg) tg.HapticFeedback?.impactOccurred('light');
@@ -541,23 +474,18 @@ aiFileInput.addEventListener('change', e => {
   reader.readAsDataURL(file);
 });
 
-function aiAnalyzePhoto() {
-  addBotMessage("📸 Фото получено! Анализирую...");
+async function aiAnalyzePhoto() {
+  const imgSrc = document.getElementById('aiPreviewImg').src;
+  if (!imgSrc || !imgSrc.startsWith('data:')) {
+    addBotMessage("⚠️ Сначала загрузите фото!");
+    return;
+  }
+  addBotMessage("📸 Фото получено! Анализирую с помощью ИИ...");
   showTyping();
-  setTimeout(() => {
-    hideTyping();
-    addBotMessage(
-      "🔍 <b>Результат анализа:</b>\n\n" +
-      "На основе вашего фото могу рекомендовать:\n\n" +
-      "✂️ <b>Стрижка:</b> Удлинённое каре или каскад средней длины — подчеркнёт черты лица\n\n" +
-      "🎨 <b>Цвет:</b> Тёплый карамельный балаяж или медовые блики — добавят объём и глубину\n\n" +
-      "💫 <b>Укладка:</b> Мягкие пляжные волны или объёмная укладка у корней\n\n" +
-      "💅 <b>Ногти:</b> Нюдовый маникюр или нежный розовый градиент — в тон образу\n\n" +
-      "🧴 <b>Уход:</b> Увлажняющая процедура для лица — для здорового сияния\n\n" +
-      "📆 <i>Готовы записаться? Нажмите «Запись» или спросите подробнее!</i>"
-    );
-    addRecommendationCards('haircut');
-  }, 2500);
+  const prompt = "Проанализируй это фото человека как профессиональный бьюти-стилист. Определи: 1) Форму лица 2) Цветотип (тёплый/холодный) 3) Тип и состояние волос (если видно). Дай конкретные рекомендации по: стрижке, цвету волос, укладке, макияжу, уходу за кожей. Укажи цены из нашего прайс-листа. Будь дружелюбной и профессиональной.";
+  const reply = await callGemini(prompt, imgSrc);
+  hideTyping();
+  addBotMessage(reply);
 }
 
 document.getElementById('aiInput').addEventListener('keypress', e => { if (e.key === 'Enter') aiSendMessage(); });
