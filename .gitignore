@@ -1,0 +1,9 @@
+# Bot files (contain token - DO NOT publish!)
+bot/
+__pycache__/
+*.db
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

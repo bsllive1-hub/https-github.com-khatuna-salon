@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Хатуна — Салон красоты в Москве</title>
+  <meta name="description" content="Салон красоты Хатуна в Москве — стрижки, маникюр, косметология, массаж. Рейтинг 5.0 ★ Ежедневно 10–21. Алтуфьевское шоссе, 74."/>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Салон красоты Хатуна — Москва"/>
+  <meta property="og:description" content="Стрижки, маникюр, косметология, массаж. Рейтинг 5.0 ★ Ежедневно 10–21"/>
+  <meta property="og:image" content="https://avatars.mds.yandex.net/get-altay/16230048/2a0000019763129eca5630c4345bf6a3ea47/XXXL"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="ru_RU"/>
+  <!-- Favicon (SVG emoji) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>" type="image/svg+xml"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <!-- FLOWER BACKGROUND -->
+  <div class="bg-flowers" id="bgFlowers">
+    <img src="flowers-bg.png" alt="" class="bg-flowers-img"/>
+  </div>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-ring"></div>
+      <span class="preloader-text">Хатуна</span>
+    </div>
+  </div>
+
+  <!-- CURSOR (desktop only) -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav-brand">Хатуна</a>
+    <div class="nav-menu" id="navMenu">
+      <a href="#about" class="nav-link" data-text="О салоне">О салоне</a>
+      <a href="#services" class="nav-link" data-text="Услуги">Услуги</a>
+      <a href="#gallery" class="nav-link" data-text="Портфолио">Портфолио</a>
+      <a href="#reviews" class="nav-link" data-text="Отзывы">Отзывы</a>
+      <a href="#contact" class="nav-link" data-text="Контакты">Контакты</a>
+    </div>
+    <a href="tel:+79932859902" class="nav-cta">
+      <span class="nav-cta-dot"></span>
+      Запись
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Меню">
+      <div class="burger-line"></div>
+      <div class="burger-line"></div>
+    </button>
+  </nav>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="#about" class="mobile-link">О салоне</a>
+      <a href="#services" class="mobile-link">Услуги</a>
+      <a href="#gallery" class="mobile-link">Портфолио</a>
+      <a href="#reviews" class="mobile-link">Отзывы</a>
+      <a href="#contact" class="mobile-link">Контакты</a>
+      <a href="tel:+79932859902" class="mobile-phone">+7 (993) 285-99-02</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-slide active" data-src="https://avatars.mds.yandex.net/get-altay/16230048/2a0000019763129eca5630c4345bf6a3ea47/XXXL"></div>
+      <div class="hero-slide" data-src="https://avatars.mds.yandex.net/get-altay/14398723/2a0000019569dea17d126ae2d58d00a91e42/XXXL"></div>
+      <div class="hero-slide" data-src="https://avatars.mds.yandex.net/get-altay/18133168/2a0000019b16fd20d38ae54f95b58aa765f8/XXXL"></div>
+      <div class="hero-slide" data-src="https://avatars.mds.yandex.net/get-altay/14296990/2a0000019569dea1b02c55c128371460a072/XXXL"></div>
+    </div>
+    <div class="hero-grain"></div>
+    <div class="hero-vignette"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Москва · Алтуфьевское шоссе, 74
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-line"><span class="hero-word">Салон</span> <span class="hero-word">красоты</span></span>
+        <span class="hero-line hero-line-accent"><span class="hero-word">Хатуна</span></span>
+      </h1>
+      <p class="hero-desc">Место, где мастерство встречает заботу.<br/>Рейтинг 5.0 · 120+ отзывов · 🏆 Хорошее место 2026</p>
+      <div class="hero-actions">
+        <a href="tel:+79932859902" class="btn-glow">
+          <span class="btn-glow-bg"></span>
+          <span class="btn-glow-text">📞 Записаться</span>
+        </a>
+        <a href="#services" class="btn-ghost">Услуги и цены →</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>scroll</span>
+    </div>
+
+    <div class="hero-slide-counter">
+      <span class="counter-current" id="counterCurrent">01</span>
+      <span class="counter-sep">/</span>
+      <span class="counter-total">04</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>✂️ Стрижки</span><span>💅 Маникюр</span><span>✨ Косметология</span><span>🧖 Массаж</span><span>🌿 Эпиляция</span><span>🖌️ Перманент</span><span>⭐ Рейтинг 5.0</span><span>🐾 Dog-friendly</span>
+      <span>✂️ Стрижки</span><span>💅 Маникюр</span><span>✨ Косметология</span><span>🧖 Массаж</span><span>🌿 Эпиляция</span><span>🖌️ Перманент</span><span>⭐ Рейтинг 5.0</span><span>🐾 Dog-friendly</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-visual">
+          <div class="about-img-stack">
+            <div class="about-img-wrap about-img-1 reveal-el">
+              <img src="https://avatars.mds.yandex.net/get-altay/16230048/2a0000019763129eca5630c4345bf6a3ea47/XXXL" alt="Ресепшн салона Хатуна"/>
+            </div>
+            <div class="about-img-wrap about-img-2 reveal-el" data-delay="200">
+              <img src="https://avatars.mds.yandex.net/get-altay/18133168/2a0000019b16fd20d38ae54f95b58aa765f8/XXXL" alt="Зона ожидания"/>
+            </div>
+          </div>
+          <div class="about-float-card reveal-el" data-delay="400">
+            <div class="afc-icon">🏆</div>
+            <div class="afc-text">
+              <strong>Хорошее место 2026</strong>
+              <span>Победитель премии Яндекс</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="label reveal-el">О салоне</div>
+          <h2 class="heading-2 reveal-el">Красота — это<br/><em>искусство</em> и <em>забота</em></h2>
+          <p class="text reveal-el">Салон красоты «Хатуна» — это место, где каждый клиент получает индивидуальный подход и высочайший уровень сервиса. Наши мастера с многолетним опытом создадут для вас идеальный образ.</p>
+          <p class="text reveal-el">Мы специализируемся на работе с кудрявыми волосами и предоставляем полный спектр бьюти-услуг — от стрижки и окрашивания до косметологии и перманентного макияжа.</p>
+
+          <div class="about-metrics reveal-el">
+            <div class="metric">
+              <div class="metric-num" data-count="5.0">0</div>
+              <div class="metric-label">рейтинг<br/>Яндекс</div>
+            </div>
+            <div class="metric">
+              <div class="metric-num" data-count="120">0</div>
+              <div class="metric-label">довольных<br/>клиентов</div>
+            </div>
+            <div class="metric">
+              <div class="metric-num" data-count="30">0</div>
+              <div class="metric-label">видов<br/>услуг</div>
+            </div>
+          </div>
+
+          <div class="about-tags reveal-el">
+            <span class="tag">🐾 Dog-friendly</span>
+            <span class="tag">📶 Wi-Fi</span>
+            <span class="tag">🅿️ Парковка</span>
+            <span class="tag">💳 Картой</span>
+            <span class="tag">🚲 Велопарковка</span>
+            <span class="tag">🌀 Кудрявые волосы</span>
+            <span class="tag">📱 Онлайн-запись</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMOS -->
+  <section class="section promos" id="promos">
+    <div class="container">
+      <div class="section-head">
+        <div class="label reveal-el">Акции</div>
+        <h2 class="heading-2 reveal-el">Специальные <em>предложения</em></h2>
+      </div>
+      <div class="promos-grid">
+        <div class="promo-card promo-pink reveal-el">
+          <div class="promo-badge">🔥 Хит</div>
+          <h3 class="promo-title">Маникюр + педикюр</h3>
+          <p class="promo-desc">Комплекс с покрытием гель-лак. Экономия 600 ₽</p>
+          <div class="promo-price"><span class="promo-old">4 800 ₽</span><span class="promo-new">4 200 ₽</span></div>
+          <a href="tel:+79932859902" class="btn-glow btn-sm"><span class="btn-glow-bg"></span><span class="btn-glow-text">Записаться</span></a>
+        </div>
+        <div class="promo-card promo-gold reveal-el" data-delay="100">
+          <div class="promo-badge">🎁 Бонус</div>
+          <h3 class="promo-title">Приведи подругу</h3>
+          <p class="promo-desc">Получите скидку 500 ₽ на любую услугу при визите с подругой</p>
+          <div class="promo-price"><span class="promo-new">−500 ₽</span></div>
+          <a href="tel:+79932859902" class="btn-glow btn-sm"><span class="btn-glow-bg"></span><span class="btn-glow-text">Узнать</span></a>
+        </div>
+        <div class="promo-card promo-dark reveal-el" data-delay="200">
+          <div class="promo-badge">⭐ Новинка</div>
+          <h3 class="promo-title">Пенсионерам</h3>
+          <p class="promo-desc">Стрижка всего 500 ₽ с 10:00 до 12:00 каждый день</p>
+          <div class="promo-price"><span class="promo-new">500 ₽</span></div>
+          <a href="tel:+79932859902" class="btn-glow btn-sm"><span class="btn-glow-bg"></span><span class="btn-glow-text">Записаться</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="label reveal-el">Услуги и цены</div>
+        <h2 class="heading-2 reveal-el">Полный <em>прайс-лист</em></h2>
+      </div>
+
+      <div class="srv-nav reveal-el">
+        <button class="srv-btn active" data-tab="hair">Парикмахерские</button>
+        <button class="srv-btn" data-tab="nails">Ногтевой сервис</button>
+        <button class="srv-btn" data-tab="cosmo">Косметология</button>
+        <button class="srv-btn" data-tab="massage">Массаж</button>
+        <button class="srv-btn" data-tab="epil">Эпиляция</button>
+        <button class="srv-btn" data-tab="perm">Перманент</button>
+      </div>
+
+      <!-- Hair -->
+      <div class="srv-panel active" id="panel-hair">
+        <div class="srv-grid">
+          <div class="srv-col">
+            <h3 class="srv-cat">Женский зал</h3>
+            <div class="srv-row"><span>Стрижка (короткие)</span><b>от 900 ₽</b></div>
+            <div class="srv-row"><span>Стрижка (средние)</span><b>от 1 200 ₽</b></div>
+            <div class="srv-row"><span>Стрижка (длинные)</span><b>от 2 000 ₽</b></div>
+            <div class="srv-row"><span>Ровный срез</span><b>1 200 ₽</b></div>
+            <div class="srv-row"><span>Горячие ножницы</span><b>от 1 500 ₽</b></div>
+            <div class="srv-row"><span>Детская стрижка</span><b>от 500 ₽</b></div>
+            <h3 class="srv-cat">Окрашивание</h3>
+            <div class="srv-row"><span>В один тон</span><b>3 000–10 000 ₽</b></div>
+            <div class="srv-row"><span>Мелирование</span><b>2 500–8 000 ₽</b></div>
+            <div class="srv-row"><span>Осветление</span><b>3 000–10 000 ₽</b></div>
+            <div class="srv-row"><span>Химическая завивка</span><b>3 500–8 000 ₽</b></div>
+            <div class="srv-row"><span>Наращивание волос</span><b>по запросу</b></div>
+          </div>
+          <div class="srv-col">
+            <h3 class="srv-cat">Мужской зал</h3>
+            <div class="srv-row"><span>Модельная стрижка</span><b>900 ₽</b></div>
+            <div class="srv-row"><span>Стрижка под насадку</span><b>400–500 ₽</b></div>
+            <div class="srv-row"><span>Пенсионерам (10–12ч)</span><b>500 ₽</b></div>
+            <div class="srv-row"><span>Усы и борода</span><b>700 ₽</b></div>
+            <div class="srv-row"><span>Налысо</span><b>300 ₽</b></div>
+            <h3 class="srv-cat">Укладка</h3>
+            <div class="srv-row"><span>Укладка</span><b>от 700 ₽</b></div>
+            <div class="srv-row"><span>Вечерняя причёска</span><b>от 2 000 ₽</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nails -->
+      <div class="srv-panel" id="panel-nails">
+        <div class="srv-grid">
+          <div class="srv-col">
+            <h3 class="srv-cat">Маникюр</h3>
+            <div class="srv-row"><span>Маникюр (классика/аппарат)</span><b>от 800 ₽</b></div>
+            <div class="srv-row"><span>Покрытие гель-лак</span><b>1 000 ₽</b></div>
+            <div class="srv-row"><span>Маникюр + гель-лак</span><b>2 300–2 600 ₽</b></div>
+            <div class="srv-row"><span>SPA-маникюр</span><b>2 600 ₽</b></div>
+            <div class="srv-row"><span>Детский маникюр</span><b>500 ₽</b></div>
+            <div class="srv-row"><span>Дизайн ногтей</span><b>от 100 ₽</b></div>
+          </div>
+          <div class="srv-col">
+            <h3 class="srv-cat">Педикюр</h3>
+            <div class="srv-row"><span>Классический</span><b>от 1 800 ₽</b></div>
+            <div class="srv-row"><span>Аппаратный</span><b>от 2 200 ₽</b></div>
+            <div class="srv-row"><span>Педикюр + покрытие</span><b>от 2 800 ₽</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cosmetology -->
+      <div class="srv-panel" id="panel-cosmo">
+        <div class="srv-grid">
+          <div class="srv-col">
+            <h3 class="srv-cat">Уход за лицом</h3>
+            <div class="srv-row"><span>Чистка комбинированная (Holy Land)</span><b>4 500 ₽</b></div>
+            <div class="srv-row"><span>Процедура «Фарфоровая куколка»</span><b>3 000 ₽</b></div>
+            <div class="srv-row"><span>Мезотерапия</span><b>6 500 ₽</b></div>
+            <h3 class="srv-cat">Инъекции</h3>
+            <div class="srv-row"><span>Биоревитализация</span><b>8 500–14 500 ₽</b></div>
+            <div class="srv-row"><span>Ботулинотерапия</span><b>350 ₽/ед.</b></div>
+            <div class="srv-row"><span>Увеличение губ (Stylage M)</span><b>15 500 ₽</b></div>
+          </div>
+          <div class="srv-col">
+            <h3 class="srv-cat">Брови и ресницы</h3>
+            <div class="srv-row"><span>Архитектура бровей хной</span><b>2 000 ₽</b></div>
+            <div class="srv-row"><span>Ламинирование бровей</span><b>от 2 000 ₽</b></div>
+            <div class="srv-row"><span>Окрашивание бровей</span><b>800–1 000 ₽</b></div>
+            <div class="srv-row"><span>Коррекция бровей</span><b>от 500 ₽</b></div>
+            <div class="srv-row"><span>Наращивание ресниц</span><b>от 2 000 ₽</b></div>
+            <div class="srv-row"><span>Ламинирование ресниц</span><b>от 1 800 ₽</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Massage -->
+      <div class="srv-panel" id="panel-massage">
+        <div class="srv-grid">
+          <div class="srv-col">
+            <h3 class="srv-cat">Массаж лица</h3>
+            <div class="srv-row"><span>Миофасциально-букальный (1 час)</span><b>3 000 ₽</b></div>
+            <div class="srv-row"><span>Авторский массаж (1 час)</span><b>2 500–3 000 ₽</b></div>
+            <h3 class="srv-cat">Массаж тела</h3>
+            <div class="srv-row"><span>Общий массаж (1 час)</span><b>2 600 ₽</b></div>
+            <div class="srv-row"><span>Массаж спины</span><b>2 000 ₽</b></div>
+            <div class="srv-row"><span>Массаж ШВЗ</span><b>1 500 ₽</b></div>
+            <div class="srv-row"><span>Антицеллюлитный</span><b>от 3 000 ₽</b></div>
+            <div class="srv-row"><span>Лимфодренажный</span><b>от 3 000 ₽</b></div>
+            <div class="srv-row"><span>Вибромассаж</span><b>от 2 000 ₽</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Epilation -->
+      <div class="srv-panel" id="panel-epil">
+        <div class="srv-grid">
+          <div class="srv-col">
+            <h3 class="srv-cat">Восковая эпиляция / Шугаринг</h3>
+            <div class="srv-row"><span>Бикини классическое</span><b>1 500 ₽</b></div>
+            <div class="srv-row"><span>Бикини глубокое</span><b>2 000 ₽</b></div>
+            <div class="srv-row"><span>Ноги полностью</span><b>1 400 ₽</b></div>
+            <div class="srv-row"><span>Голени</span><b>от 800 ₽</b></div>
+            <div class="srv-row"><span>Подмышки</span><b>от 500 ₽</b></div>
+            <div class="srv-row"><span>Лицо полностью</span><b>1 000 ₽</b></div>
+            <div class="srv-row"><span>Руки полностью</span><b>от 800 ₽</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Permanent -->
+      <div class="srv-panel" id="panel-perm">
+        <div class="srv-grid">
+          <div class="srv-col">
+            <h3 class="srv-cat">Перманентный макияж (татуаж)</h3>
+            <div class="srv-row"><span>Брови</span><b>8 000 ₽</b></div>
+            <div class="srv-row"><span>Губы</span><b>8 000 ₽</b></div>
+            <div class="srv-row"><span>Межресничное пространство</span><b>7 000 ₽</b></div>
+            <div class="srv-row"><span>Коррекция</span><b>от 3 000 ₽</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <div class="section-head">
+        <div class="label reveal-el">Портфолио</div>
+        <h2 class="heading-2 reveal-el">Работы <em>наших мастеров</em></h2>
+      </div>
+    </div>
+    <div class="gallery-track reveal-el">
+      <div class="g-card g-card-tall">
+        <img src="https://avatars.mds.yandex.net/get-altay/15112342/2a0000019569dea17811ca6010734cac0ab9/XXXL" alt="Стильное каре"/>
+        <div class="g-overlay"><span>Стрижка каре</span></div>
+      </div>
+      <div class="g-card">
+        <img src="https://avatars.mds.yandex.net/get-altay/14460769/2a0000019569dea50f13f421830458b1135c/XXXL" alt="Маникюр"/>
+        <div class="g-overlay"><span>Маникюр</span></div>
+      </div>
+      <div class="g-card">
+        <img src="https://avatars.mds.yandex.net/get-altay/16230048/2a0000019763129eca5630c4345bf6a3ea47/XXXL" alt="Интерьер"/>
+        <div class="g-overlay"><span>Интерьер</span></div>
+      </div>
+      <div class="g-card g-card-tall">
+        <img src="https://avatars.mds.yandex.net/get-altay/14398723/2a0000019569dea17d126ae2d58d00a91e42/XXXL" alt="Окрашивание"/>
+        <div class="g-overlay"><span>Окрашивание</span></div>
+      </div>
+      <div class="g-card">
+        <img src="https://avatars.mds.yandex.net/get-altay/14795363/2a0000019569de55df8f7aa08ef38ccbbdac/XXXL" alt="Ногти"/>
+        <div class="g-overlay"><span>Ногтевой сервис</span></div>
+      </div>
+      <div class="g-card">
+        <img src="https://avatars.mds.yandex.net/get-altay/15112342/2a0000019569de55e5785ddd70ab4c437b78/XXXL" alt="Окрашивание"/>
+        <div class="g-overlay"><span>Колористика</span></div>
+      </div>
+      <div class="g-card g-card-tall">
+        <img src="https://avatars.mds.yandex.net/get-altay/18133168/2a0000019b16fd20d38ae54f95b58aa765f8/XXXL" alt="Зона ожидания"/>
+        <div class="g-overlay"><span>Зона отдыха</span></div>
+      </div>
+      <div class="g-card">
+        <img src="https://avatars.mds.yandex.net/get-altay/14296990/2a0000019569dea1b02c55c128371460a072/XXXL" alt="Причёска"/>
+        <div class="g-overlay"><span>Укладка</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <div class="label reveal-el">Отзывы</div>
+        <h2 class="heading-2 reveal-el">Клиенты <em>о нас</em></h2>
+        <div class="reviews-rating reveal-el">
+          <div class="rr-stars">★★★★★</div>
+          <div class="rr-score">5.0</div>
+          <div class="rr-count">120+ отзывов на Яндекс.Картах</div>
+        </div>
+      </div>
+
+      <div class="reviews-slider" id="reviewsSlider">
+        <div class="rv-card reveal-el">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">«Посетила сегодня салон «Хатуна» и осталась в восторге! Интерьер, обслуживание, персонал — на высшем уровне! Угостили кофе и сладостями. Обязательно приду снова!»</p>
+          <div class="rv-author">
+            <div class="rv-avatar">L</div>
+            <div><strong>Lizi A.</strong><span>Яндекс.Карты</span></div>
+          </div>
+        </div>
+        <div class="rv-card reveal-el" data-delay="100">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">«Посещение салона оставило невероятно приятные впечатления! Отдельное спасибо администратору Марии — это просто волшебница! Всем рекомендую.»</p>
+          <div class="rv-author">
+            <div class="rv-avatar">О</div>
+            <div><strong>Ольга Хозяйская</strong><span>Яндекс.Карты</span></div>
+          </div>
+        </div>
+        <div class="rv-card reveal-el" data-delay="200">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">«Сегодня впервые пришла к мастеру Хатуне — очень качественная работа! Стрижка идеальная, атмосфера уютная. Рекомендую всем.»</p>
+          <div class="rv-author">
+            <div class="rv-avatar">С</div>
+            <div><strong>Светлана Вогрич</strong><span>Яндекс.Карты</span></div>
+          </div>
+        </div>
+        <div class="rv-card reveal-el" data-delay="300">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">«Отличный салон, все мастера — настоящие профи. Стригусь только здесь. Всегда приятная атмосфера и хорошее настроение после визита.»</p>
+          <div class="rv-author">
+            <div class="rv-avatar">Н</div>
+            <div><strong>Никита Блохин</strong><span>Яндекс.Карты</span></div>
+          </div>
+        </div>
+        <div class="rv-card reveal-el" data-delay="400">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">«В салоне чисто, уютно, всегда предложат чай. Профессионализм на высоте. Делаю маникюр уже полгода — всегда безупречно!»</p>
+          <div class="rv-author">
+            <div class="rv-avatar">И</div>
+            <div><strong>Инга Магда</strong><span>Яндекс.Карты</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-actions reveal-el">
+        <a href="https://yandex.kz/maps/org/khatuna/130709311587/" target="_blank" class="btn-ghost">Все отзывы на Яндекс.Картах →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="section booking" id="booking">
+    <div class="container">
+      <div class="booking-wrap">
+        <div class="booking-left">
+          <div class="label reveal-el">Онлайн-запись</div>
+          <h2 class="heading-2 reveal-el">Запишитесь <em>прямо сейчас</em></h2>
+          <p class="text reveal-el">Оставьте заявку, и мы перезвоним вам для подтверждения в течение 15 минут.</p>
+          <div class="booking-perks reveal-el">
+            <div class="perk"><span>✅</span> Подтверждение за 15 минут</div>
+            <div class="perk"><span>✅</span> Напоминание за 1 час</div>
+            <div class="perk"><span>✅</span> Бесплатная отмена</div>
+          </div>
+        </div>
+        <form class="booking-form reveal-el" id="bookingForm">
+          <div class="form-group">
+            <label for="formName">Ваше имя</label>
+            <input type="text" id="formName" placeholder="Анна" required/>
+          </div>
+          <div class="form-group">
+            <label for="formPhone">Телефон</label>
+            <input type="tel" id="formPhone" placeholder="+7 (___) ___-__-__" required/>
+          </div>
+          <div class="form-group">
+            <label for="formService">Услуга</label>
+            <select id="formService" required>
+              <option value="">Выберите услугу</option>
+              <option>Стрижка женская</option>
+              <option>Стрижка мужская</option>
+              <option>Окрашивание</option>
+              <option>Маникюр + гель-лак</option>
+              <option>Педикюр</option>
+              <option>Косметология</option>
+              <option>Массаж</option>
+              <option>Перманентный макияж</option>
+              <option>Эпиляция / Шугаринг</option>
+              <option>Брови / Ресницы</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="formDate">Желаемая дата</label>
+            <input type="date" id="formDate"/>
+          </div>
+          <button type="submit" class="btn-glow btn-block"><span class="btn-glow-bg"></span><span class="btn-glow-text">📅 Записаться</span></button>
+          <div class="form-success" id="formSuccess">✅ Заявка отправлена! Мы перезвоним в течение 15 минут.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="label reveal-el">Вопросы</div>
+        <h2 class="heading-2 reveal-el">Часто <em>спрашивают</em></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal-el">
+          <button class="faq-q">Нужна ли предварительная запись? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Да, мы рекомендуем записываться заранее по телефону +7 (993) 285-99-02 или через форму на сайте. Так мы гарантируем удобное для вас время.</p></div>
+        </div>
+        <div class="faq-item reveal-el">
+          <button class="faq-q">Принимаете ли вы оплату картой? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Да, мы принимаем банковские карты, наличные и переводы. Также доступна оплата через СБП.</p></div>
+        </div>
+        <div class="faq-item reveal-el">
+          <button class="faq-q">Можно ли прийти с ребёнком? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Конечно! У нас есть детские стрижки от 500 ₽ и детский маникюр от 500 ₽. Наш салон дружелюбен и к детям, и к питомцам (dog-friendly).</p></div>
+        </div>
+        <div class="faq-item reveal-el">
+          <button class="faq-q">Есть ли парковка рядом? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Да, рядом с салоном есть бесплатная парковка для автомобилей и велопарковка. Адрес: Алтуфьевское шоссе, 74.</p></div>
+        </div>
+        <div class="faq-item reveal-el">
+          <button class="faq-q">Работаете ли вы с кудрявыми волосами? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Да! Мы специализируемся на работе с кудрявыми волосами. Мастер Хатуна имеет многолетний опыт создания идеальных стрижек для кудрей.</p></div>
+        </div>
+        <div class="faq-item reveal-el">
+          <button class="faq-q">Какой у вас режим работы? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Мы работаем ежедневно без выходных с 10:00 до 21:00. Для пенсионеров действует спеццена на стрижки с 10:00 до 12:00.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <div class="label reveal-el">Контакты</div>
+          <h2 class="heading-2 reveal-el">Ждём вас<br/><em>каждый день</em></h2>
+          <div class="contact-items">
+            <div class="ci reveal-el">
+              <div class="ci-icon">📍</div>
+              <div>
+                <div class="ci-label">Адрес</div>
+                <div class="ci-value">Москва, Алтуфьевское шоссе, 74</div>
+              </div>
+            </div>
+            <div class="ci reveal-el">
+              <div class="ci-icon">📞</div>
+              <div>
+                <div class="ci-label">Телефон</div>
+                <a href="tel:+79932859902" class="ci-value ci-link">+7 (993) 285-99-02</a>
+              </div>
+            </div>
+            <div class="ci reveal-el">
+              <div class="ci-icon">🕐</div>
+              <div>
+                <div class="ci-label">Режим работы</div>
+                <div class="ci-value">Ежедневно 10:00 — 21:00</div>
+              </div>
+            </div>
+            <div class="ci reveal-el">
+              <div class="ci-icon">🅿️</div>
+              <div>
+                <div class="ci-label">Удобства</div>
+                <div class="ci-value">Парковка · Велопарковка · Wi-Fi · Dog-friendly 🐾</div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-cta reveal-el">
+            <a href="tel:+79932859902" class="btn-glow"><span class="btn-glow-bg"></span><span class="btn-glow-text">📞 Позвонить</span></a>
+            <a href="https://yandex.kz/maps/org/khatuna/130709311587/" target="_blank" class="btn-ghost">Открыть на карте →</a>
+          </div>
+        </div>
+        <div class="contact-map reveal-el">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ll=37.588790,55.890638&z=15&pt=37.588790,55.890638,pm2rdm"
+            width="100%" height="100%"
+            frameborder="0" allowfullscreen loading="lazy"
+            title="Карта — Салон красоты Хатуна"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Хатуна</div>
+          <p class="footer-desc">Салон красоты в Москве<br/>Алтуфьевское ш., 74</p>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <div class="footer-col-title">Навигация</div>
+            <a href="#about">О салоне</a>
+            <a href="#services">Услуги</a>
+            <a href="#gallery">Портфолио</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contact">Контакты</a>
+          </div>
+          <div>
+            <div class="footer-col-title">Контакты</div>
+            <a href="tel:+79932859902">+7 (993) 285-99-02</a>
+            <span>Ежедневно 10–21</span>
+            <span>Dog-friendly 🐾</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Салон красоты «Хатуна» · Москва</span>
+        <span>🏆 Хорошее место 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CHAT BUTTONS -->
+  <div class="float-chat" id="floatChat">
+    <div class="float-options" id="floatOptions">
+      <a href="https://wa.me/79932859902?text=Здравствуйте!%20Хочу%20записаться%20в%20салон%20Хатуна" target="_blank" class="float-option float-wa">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://t.me/+79932859902" target="_blank" class="float-option float-tg">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Telegram
+      </a>
+      <a href="tel:+79932859902" class="float-option float-phone">
+        📞 Позвонить
+      </a>
+    </div>
+    <button class="float-btn" id="floatBtn" aria-label="Связаться">
+      <span class="float-btn-icon">💬</span>
+      <span class="float-btn-close">✕</span>
+    </button>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose">✕</button>
+    <img class="lb-img" id="lbImg" alt=""/>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
