@@ -277,9 +277,7 @@ function showPromos() { switchTab('home'); setTimeout(() => document.getElementB
 // ================================================
 // AI BEAUTY CONSULTANT — GEMINI-POWERED ENGINE
 // ================================================
-const GEMINI_API_KEY = "AIzaSyCgKlYxubonAvEiPaqm1Cr_MIYV_GypOHA";
-const GEMINI_MODEL = "gemini-2.0-flash";
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_PROXY_URL = "https://gemini-proxy-production-35ac.up.railway.app/api/chat";
 
 const SYSTEM_PROMPT = `Ты — ИИ бьюти-стилист салона красоты «Хатуна» в Москве (Алтуфьевское шоссе, 74).
 Твоя задача — давать персональные рекомендации по красоте и помогать клиентам выбрать услуги.
@@ -352,7 +350,7 @@ async function callGemini(userText, imageBase64 = null) {
   ];
 
   try {
-    const resp = await fetch(GEMINI_URL, {
+    const resp = await fetch(GEMINI_PROXY_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
